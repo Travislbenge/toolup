@@ -1,0 +1,6 @@
+<h1>Results</h1>
+<% @tools.each do |tool| %>
+  <h2><%= link_to tool.name %></h2>
+  <p><%= tool.address %></p>
+<% end %>
+
