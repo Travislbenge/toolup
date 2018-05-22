@@ -13,6 +13,7 @@
   <body>
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>
+    <%= render 'shared/banner' if @render_banner %>
 
     <%= yield %>
     <%= javascript_include_tag 'application' %>
