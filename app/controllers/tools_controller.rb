@@ -13,6 +13,7 @@ class ToolsController < ApplicationController
 
   def create
     @tool = Tool.create(tool_params)
+    @tool.owner = current_user
     if @tool.save
       redirect_to tool_path(@tool)
     else
@@ -29,6 +30,6 @@ class ToolsController < ApplicationController
   private
 
   def tool_params
-    params.require(:tool).permit(:name, :description, :price, :category, :user_id, :photo, :photo_cache)
+    params.require(:tool).permit(:name, :description, :price, :category, :photo, :photo_cache)
   end
 end
