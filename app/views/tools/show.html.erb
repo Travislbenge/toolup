@@ -1,6 +1,18 @@
 <h1>Tools#show</h1>
 <p>Find me in app/views/tools/show.html.erb</p>
 
-<%= @tool.name %>
 
-<%= cl_image_tag @tool.photo, height: 300, width: 400, crop: :fill %>
+<!-- Sexy Bootstrap Thumbmnail -->
+
+<div class="row">
+  <div class="col-sm-6.offset-sm-3">
+    <div class="thumbnail">
+      <%= cl_image_tag @tool.photo, height: 300, width: 400, crop: :fill %>
+      <div class="caption">
+        <h3><%= @tool.name %></h3>
+        <p><%= @tool.description %></p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
