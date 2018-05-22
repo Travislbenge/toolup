@@ -1,1 +1,9 @@
 CLOUDINARY_URL: "cloudinary://774275253327466:XbBRSvL7ofeo3IIuIfBd5qvRdGs@ojocorto"
+
+development:
+  FB_ID: "203102377156277"
+  FB_SECRET: "8ff2b59bb3a985a0246c9bdeb57643b2"
+
+production:
+  FB_ID: "1833421160013145"
+  FB_SECRET: "b7a26d9fe6f26cb7ef64146e77771ad6"
