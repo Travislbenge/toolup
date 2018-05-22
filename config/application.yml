@@ -1,6 +1,6 @@
 development:
-  FB_ID:
-  FB_SECRET:
+  FB_ID: "203102377156277"
+  FB_SECRET: "8ff2b59bb3a985a0246c9bdeb57643b2"
 
 production:
   FB_ID: "1833421160013145"
