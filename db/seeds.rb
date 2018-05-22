@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+puts "building ten tools"
+10.times do
+  tool = Tool.new(
+    name: Faker::Pokemon.name,
+    description: Faker::Pokemon.move,
+    price: Faker::Currency.name,
+    category: Faker::Color.color_name
+
+    )
+  tool.save
+
+end
+puts "fishing"
