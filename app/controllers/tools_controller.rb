@@ -2,6 +2,7 @@ class ToolsController < ApplicationController
   # skip_before_action :authenticate_user!, only: :home
   def home
     @tools = policy_scope(Tool)
+    @tools = Tool.all
     authorize @tools
   end
 
