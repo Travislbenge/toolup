@@ -7,20 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+
+puts "building Users"
+u = User.create(email: "antoine@gmail.com", password:"123456")
+u_2 = User.create(email: "antoine.guilguet@gmail.com", password:"123456")
+
 puts "building ten tools"
 10.times do
+  url = 'http://cdn1.bigcommerce.com/server5600/muyrz/product_images/uploaded_images/tools-cropped.jpg?t=1504028176'
   tool = Tool.new(
     name: Faker::Pokemon.name,
     description: Faker::Pokemon.move,
     price: Faker::Currency.name,
-    category: Faker::Color.color_name
-
+    category: Faker::Color.color_name,
+    address: Faker::Address.street_name,
+    user_id: u.id
     )
+  tool.remote_photo_url = url
   tool.save
-
+  puts "building ten bookings"
+  Booking.create(tool_id: tool.id, user_id: u.id)
+  Booking.create(tool_id: tool.id, user_id: u_2.id)
 end
-puts "fishing"
-
-
-book1 = Booking.new(tool_id: 1, user_id: 1)
-book1.save
