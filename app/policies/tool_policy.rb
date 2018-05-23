@@ -37,5 +37,9 @@ class ToolPolicy < ApplicationPolicy
     record.owner == user
   end
 
+  def mine?
+    true
+  end
+
 
 end
