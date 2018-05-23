@@ -43,7 +43,7 @@ class ToolsController < ApplicationController
   def update
     @tool = Tool.find(params[:id])
     authorize @tool
-    @task.update(tool_params)
+    @tool.update(tool_params)
     redirect_to tool_path(@tool)
   end
 
