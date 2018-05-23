@@ -5,6 +5,15 @@ class ToolsController < ApplicationController
     @tools = policy_scope(Tool)
     @tools = Tool.all
     authorize @tools
+    @locations = Tool.where.not(latitude: nil, longitude: nil)
+
+    @markers = @locations.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude
+        # infoWindow: { content: render_to_string(partial: "/tools/map_box", locals: { flat: flat }) }
+      }
+   end
   end
 
   def show
