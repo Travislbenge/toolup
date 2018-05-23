@@ -22,11 +22,15 @@ end
 puts "fishing"
 
 
-book1 = Booking.new(tool_id: 1, user_id: 1)
-book1.save
 
-book2 = Booking.new(tool_id: 2, user_id: 2)
-book2.save
 
-book3 = Booking.new(tool_id: 3, user_id: 3)
-book3.save
+puts "building ten bookings"
+5.times do
+  booking = Booking.new(
+    tool_id: rand(1..3),
+    user_id: rand(1..3)
+
+    )
+  booking.save
+end
+puts "hunting"
