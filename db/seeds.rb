@@ -19,8 +19,8 @@ puts "building ten tools"
     description: Faker::Pokemon.move,
     price: Faker::Currency.name,
     category: Faker::Color.color_name,
+    address: Faker::Address.street_name,
     user_id: u.id
-    address: "Tempelhofer Ufer 7, 10963 Berlin"
     )
   tool.save
   puts "building ten bookings"
