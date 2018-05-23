@@ -47,6 +47,10 @@ class ToolsController < ApplicationController
     redirect_to tool_path(@tool)
   end
 
+  def mine
+    @tools = Tool.where(@tool.owner = current_user)
+  end
+
   private
 
   def tool_params
