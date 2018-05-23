@@ -1,9 +1,10 @@
 <%= simple_form_for @tool, defaults: { input_html: { class: 'form-control' } } do |f| %>
 
-    <%= f.input :name, label: 'Name', placeholder: 'Big Tractor'  %>
+    <%= f.input :name, label: 'Name', placeholder: 'Big Tractor' %>
     <%= f.input :description, label: 'Description', placeholder: 'Does all the forming for us, yellow, too heavy to carry.' %>
     <%= f.input :price, label: 'Price', placeholder: 'price per day' %>
-    <%= f.input :category, label: 'Category' %>
+    <%= f.input :category, :collection => [['Big Machines', :BIG], ['Medium Machines', :MED],['Small Machines', :SMA]], :checked => [:MED], :include_hidden => false %>
+
 
     <%= f.input :photo, label: 'Upload pic' %>
     <%= f.input :photo_cache, as: :hidden %>
