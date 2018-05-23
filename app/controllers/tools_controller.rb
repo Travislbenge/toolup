@@ -48,7 +48,8 @@ class ToolsController < ApplicationController
   end
 
   def mine
-    @tools = Tool.where(@tool.owner = current_user)
+    @tools = current_user.my_tools
+    authorize @tools
   end
 
   private
