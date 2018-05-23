@@ -20,6 +20,7 @@ puts "building ten tools"
     price: Faker::Currency.name,
     category: Faker::Color.color_name,
     user_id: u.id
+    address: "Tempelhofer Ufer 7, 10963 Berlin"
     )
   tool.save
   puts "building ten bookings"
