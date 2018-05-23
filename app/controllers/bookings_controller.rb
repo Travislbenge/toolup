@@ -5,7 +5,6 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
     # @user = User.find(params[:id])
     # @booking.user = @user
-    authorize @bookings
   end
 
   def show
