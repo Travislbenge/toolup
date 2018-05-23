@@ -1,7 +1,7 @@
 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path(tool.photo) %>);">
   <div class="card-category"><%= tool.category %></div>
   <div class="card-description">
-    <h2><%= tool.description %></h2>
+    <h2><%= link_to tool.name, tool_path(tool) %></h2>
   </div>
-  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <img class="card-user" src=<%= tool.owner.facebook_picture_url %>>
 </div>

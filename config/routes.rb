@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'pages#homepage'
-
+  get 'my_tools', to: 'tools#mine'
   resources :tools
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

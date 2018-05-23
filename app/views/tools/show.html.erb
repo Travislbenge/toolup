@@ -12,11 +12,18 @@
         <div class="caption text-center">
           <h3><%= @tool.name %></h3>
           <p><%= @tool.description %></p>
-          <p><a href="#" class="btn btn-primary" role="button">Book me</a>
+          <% if @tool.owner == current_user %>
+            <%= link_to 'Edit', edit_tool_path, class: 'btn btn-warning' %></p>
+          <% else %>
+            <%= link_to 'Book me', new_booking_path, class: 'btn btn-success' %>
+          <% end %>
           <br><br>
-          <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <%= link_to 'Return to index', tools_path, class: 'btn btn-danger' %>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<%= current_user.id %>
+<%= @tool.owner.id %>
