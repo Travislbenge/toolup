@@ -15,7 +15,7 @@
           <% if @tool.owner == current_user %>
             <%= link_to 'Edit', edit_tool_path, class: 'btn btn-warning' %></p>
           <% else %>
-            <%= link_to 'Book me', new_booking_path, class: 'btn btn-success' %>
+            <%= link_to 'Book me', new_tool_booking_path(@tool), class: 'btn btn-success' %>
           <% end %>
           <br><br>
           <%= link_to 'Return to index', tools_path, class: 'btn btn-danger' %>

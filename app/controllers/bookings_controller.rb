@@ -11,16 +11,17 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @tool = Tool.find(params[:tool_id])
     @booking = Booking.new
     authorize @booking
   end
 
   def create
-    @booking = Booking.create(booking_params)
-    authorize @booking
-    @user = User.find(params[:id])
+    @booking = Booking.new #(booking_params)
     # Linking the models
-    @booking.user = @user
+    @booking.tool = Tool.find(params[:tool_id])
+    @booking.user = current_user
+    authorize @booking
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -48,9 +49,10 @@ class BookingsController < ApplicationController
 
 private
 
-  def booking_params
-      params.require(:booking).permit(:tool_id, :user_id)
-  end
+  # def booking_params
+  #     params.require(:booking).permit()
+  # end
 
 
 end
+
