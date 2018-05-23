@@ -1,2 +1,22 @@
 <h1>Bookings#show</h1>
 <p>Find me in app/views/bookings/show.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <%= cl_image_tag @booking.tool.photo, height: 250, crop: :fill %>
+        <div class="caption text-center">
+          <h3>Tool: <%= @booking.tool.name %></h3>
+          <p>Owner: <%= @booking.tool.owner.email %></p>
+           <p>Created at: <%= @booking.created_at %></p>
+          <br><br>
+          <%= link_to 'Return to index', tools_path, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= current_user.id %>
+<%= @booking.tool.owner.id %>
