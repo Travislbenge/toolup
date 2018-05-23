@@ -7,20 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+
+puts "building Users"
+u = User.create(email: "antoine@gmail.com", password:"123456")
+u_2 = User.create(email: "antoine.guilguet@gmail.com", password:"123456")
+
 puts "building ten tools"
 10.times do
   tool = Tool.new(
     name: Faker::Pokemon.name,
     description: Faker::Pokemon.move,
     price: Faker::Currency.name,
-    category: Faker::Color.color_name
-
+    category: Faker::Color.color_name,
+    user_id: u.id
     )
   tool.save
-
+  puts "building ten bookings"
+  Booking.create(tool_id: tool.id, user_id: u.id)
+  Booking.create(tool_id: tool.id, user_id: u_2.id)
 end
-puts "fishing"
-
-
-book1 = Booking.new(tool_id: 1, user_id: 1)
-book1.save
