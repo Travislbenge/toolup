@@ -3,8 +3,6 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
     @bookings = Booking.all
-    # @user = User.find(params[:id])
-    # @booking.user = @user
   end
 
   def show
