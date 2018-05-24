@@ -1,5 +1,6 @@
-
-<%= simple_form_for [@tool, @review] do |f| %>
+<% tool = @tool
+review = Review.new  %>
+<%= simple_form_for [tool, review] do |f| %>
   <%= f.input :content %>
   <%= f.submit "add a review", class: "btn btn-primary" %>
 <% end %>
