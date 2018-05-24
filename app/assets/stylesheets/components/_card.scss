@@ -5,8 +5,9 @@
   background-position: center;
   color: white;
   position: relative;
-  margin: 20px;
+  margin: 10px;
   color: black;
+  border-radius:5px;
 }
 .card-user {
   position: absolute;
@@ -54,6 +55,19 @@
   opacity: 0.1;
   color: black;
 }
-.main-content{
-  display:flex;
+
+.booking{
+  text-align: center;
+  justify-content:center;
+  margin: 20px;
+  background-color: #f7f7f7 ;
+  opacity:0.8;
+  border: solid 1px;
+  border-color: white;
+  border-radius:5px;
 }
+
+.container-fluid{
+ background-color: #eeeeee;
+}
+
