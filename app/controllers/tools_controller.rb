@@ -2,6 +2,7 @@ class ToolsController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def index
+    @render_footer = true
     @tools = policy_scope(Tool)
     @tools = Tool.all
     authorize @tools
@@ -17,6 +18,7 @@ class ToolsController < ApplicationController
   end
 
   def show
+    @render_footer = true
     @tool = Tool.find(params[:id])
     authorize @tool
     @markers = [@tool].map do |location|
@@ -29,11 +31,13 @@ class ToolsController < ApplicationController
   end
 
   def new
+    @render_footer
     @tool = Tool.new
     authorize @tool
   end
 
   def create
+    @render_footer
     @tool = Tool.new(tool_params)
     @tool.owner = current_user
     authorize @tool
@@ -52,6 +56,7 @@ class ToolsController < ApplicationController
   end
 
   def edit
+    @render_footer
     @tool = Tool.find(params[:id])
     authorize @tool
   end

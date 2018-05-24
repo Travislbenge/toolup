@@ -1,10 +1,8 @@
-<div class="container">
-  <div class="tools-container">
-   <div class="row">
-    <div class="col-sm-6 col-offset-6">
-      <div class="">
+  <div class = "container-fluid">
+    <div class="col-sm-8 col-offset-8">
+      <div class="row">
+        <div class="booking">
         <%= cl_image_tag @tool.photo, height: 300, crop: :fill %>
-      </div>
       <div class="description">
         <h3>Name:<%= @tool.name %></h3>
         <p>Description:<br><%= @tool.description %></p>
@@ -18,8 +16,9 @@
         <% end %>
         <%= link_to 'More tools', tools_path, class: 'btn btn-danger' %>
       </div>
+      </div>
+      </div>
     </div>
+      <div id="map" data-markers="<%= @markers.to_json %>"></div>
   </div>
-  <div id="map" data-markers="<%= @markers.to_json %>"></div>
-</div>
-</div>
+
