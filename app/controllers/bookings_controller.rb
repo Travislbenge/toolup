@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   # This is the bookingscontroller, superfluous commenting
   def index
     @bookings = policy_scope(Booking)
-    @bookings = Booking.all
+    # @bookings = Booking.all
   end
 
   def show
@@ -17,8 +17,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new #(booking_params)
+    @booking = Booking.new(booking_params)
     # Linking the models
+    @tool = Tool.find(params[:tool_id])
     @booking.tool = Tool.find(params[:tool_id])
     @booking.user = current_user
     authorize @booking
@@ -49,9 +50,9 @@ class BookingsController < ApplicationController
 
 private
 
-  # def booking_params
-  #     params.require(:booking).permit()
-  # end
+  def booking_params
+    params.require(:booking).permit(:start_date,:end_date)
+  end
 
 
 end

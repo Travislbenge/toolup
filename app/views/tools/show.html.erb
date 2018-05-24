@@ -1,6 +1,15 @@
-<h1>Show Tools</h1>
-<p>Find me in app/views/tools/show.html.erb</p>
+  <div class = "container-fluid">
+    <div class="col-sm-8 col-offset-8">
+      <div class="row">
+        <div class="booking">
+        <%= cl_image_tag @tool.photo, height: 300, crop: :fill %>
+      <div class="description">
+        <h3>Name:<%= @tool.name %></h3>
+        <p>Description:<br><%= @tool.description %></p>
+        <p>Price per day:<br><%= @tool.price %></p>
+        <p>Location:<br><%= @tool.address %></p>
 
+<<<<<<< HEAD
 <!-- Sexy Bootstrap Thumbmnail -->
 
 <div class="container">
@@ -20,8 +29,18 @@
           <br><br>
           <%= link_to 'More tools', tools_path, class: 'btn btn-danger' %>
         </div>
+=======
+        <% if @tool.owner == current_user %>
+        <%= link_to 'Edit', edit_tool_path, class: 'btn btn-warning' %></p>
+        <% else %>
+        <%= link_to 'Book me', new_tool_booking_path(@tool), class: 'btn btn-success' %>
+        <% end %>
+        <%= link_to 'More tools', tools_path, class: 'btn btn-danger' %>
+      </div>
+      </div>
+>>>>>>> 83cb5968efbfaccfc3dcaec5ee21203ab8e68a75
       </div>
     </div>
+      <div id="map" data-markers="<%= @markers.to_json %>"></div>
   </div>
-</div>
 

@@ -9,7 +9,8 @@
         <div class="caption text-center">
           <h3>Tool: <%= @booking.tool.name %></h3>
           <p>Owner: <%= @booking.tool.owner.email %></p>
-           <p>Created at: <%= @booking.created_at %></p>
+           <p>Start date: <%= @booking.start_date %></p>
+           <p>End date: <%= @booking.end_date %></p>
           <br><br>
           <%= link_to 'More tools', tools_path, class: 'btn btn-danger' %>
         </div>
