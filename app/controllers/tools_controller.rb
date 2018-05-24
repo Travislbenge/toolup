@@ -8,17 +8,24 @@ class ToolsController < ApplicationController
     @locations = Tool.where.not(latitude: nil, longitude: nil)
 
     @markers = @locations.map do |location|
-      {
-        lat: location.latitude,
-        lng: location.longitude
-        # infoWindow: { content: render_to_string(partial: "/tools/map_box", locals: { flat: flat }) }
-      }
-   end
+        {
+          lat: location.latitude,
+          lng: location.longitude
+          # infoWindow: { content: render_to_string(partial: "/tools/map_box", locals: { flat: flat }) }
+        }
+     end
   end
 
   def show
     @tool = Tool.find(params[:id])
     authorize @tool
+    @markers = [@tool].map do |location|
+        {
+          lat: location.latitude,
+          lng: location.longitude
+          # infoWindow: { content: render_to_string(partial: "/tools/map_box", locals: { flat: flat }) }
+        }
+     end
   end
 
   def new
@@ -64,6 +71,6 @@ class ToolsController < ApplicationController
   private
 
   def tool_params
-    params.require(:tool).permit(:name, :description, :price, :category, :photo)
+    params.require(:tool).permit(:name, :description, :price, :category, :photo, :address)
   end
 end
