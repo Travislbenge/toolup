@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-Tool.destroy_all
-Booking.destroy_all
-User.destroy_all
+# Tool.destroy.all
+# Booking.destroy.all
+# User.destroy.all
 
 puts "building Users"
 u = User.create(email: "antoine@gmail.com", password:"123456")
