@@ -5,7 +5,6 @@
     <%= f.input :price, label: 'Price', placeholder: 'price per day' %>
     <%= f.input :category, :collection => [['Big Machines', :BIG], ['Medium Machines', :MED],['Small Machines', :SMA]], :checked => [:MED], :include_hidden => false %>
 
-
     <%= f.input :photo, label: 'Upload pic' %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.submit %>
