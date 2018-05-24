@@ -8,6 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #926229;
+  border: 2px solid;
 }
 
 /* Logo */
@@ -34,15 +36,17 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+  color: black;
+  border-radius: 10px;
 }
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+  color: black;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: gray;
   text-decoration: none;
 }
 

@@ -1,5 +1,5 @@
 .card {
-  height: 175px;
+  height: 225px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
@@ -7,6 +7,9 @@
   position: relative;
   margin: 20px;
   color: black;
+  border-radius: 10px;
+  border: 2px solid;
+
 }
 .card-user {
   position: absolute;
@@ -36,7 +39,6 @@
 }
 .card-description p {
   font-size: 14px;
-  opacity: 0.7;
   font-weight: lighter;
   color: black;
 }
@@ -46,7 +48,6 @@
   bottom: 0;
   right: 0;
   width: 100%;
-  z-index: 2;
   color: black;
   opacity: 0;
 }
