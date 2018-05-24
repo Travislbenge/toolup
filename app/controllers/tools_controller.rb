@@ -8,7 +8,7 @@ class ToolsController < ApplicationController
     authorize @tools
     @locations = Tool.where.not(latitude: nil, longitude: nil)
 
-    @markers = @locations.map do |location|
+    @markers = @tools.map do |location|
         {
           lat: location.latitude,
           lng: location.longitude

@@ -3,6 +3,7 @@
   <div class="card-description">
     <h2><%= link_to tool.name, tool_path(tool) %></h2>
     <p><%= tool.address %></p>
+    <%= tool.reviews.count %>
   </div>
   <img class="card-user" src=<%= tool.owner.facebook_picture_url %>>
 </div>

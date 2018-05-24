@@ -7,9 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-Tool.destroy_all
-Booking.destroy_all
-User.destroy_all
 
 puts "building Users"
 u = User.create(email: "antoine@gmail.com", password:"123456")
@@ -23,9 +20,8 @@ puts "building ten tools"
     description: Faker::Pokemon.move,
     price: Faker::Currency.name,
     category: Faker::Color.color_name,
-    address: Faker::Address.street_name,
-    user_id: u.id,
-    photo: url
+    address: "Rudi-Dutschke-Straße, Berlín, Alemania",
+    user_id: u.id
     )
   tool.remote_photo_url = url
   tool.save

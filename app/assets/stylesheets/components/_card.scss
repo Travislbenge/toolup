@@ -8,6 +8,7 @@
   margin: 10px;
   color: black;
   border-radius:5px;
+  border: 2px solid;
 }
 .card-user {
   position: absolute;
@@ -69,5 +70,9 @@
 
 .container-fluid{
  background-color: #eeeeee;
+}
+
+.description-tools{
+  margin: 10px;
 }
 
