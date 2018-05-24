@@ -1,0 +1,13 @@
+<h1>My Dashboard</h1>
+<div class="main-content">
+  <div class="booking-content">
+    <div class="row">
+      <div class="col-4 ">
+        <% @bookings.each do |booking| %>
+          <p>Tool: <%= booking.tool.name %></p>
+          <p>Booked: <%= booking.created_at.strftime("%F") %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
