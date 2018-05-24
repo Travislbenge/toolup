@@ -1,15 +1,14 @@
 
 <div class="main-content">
   <div class="cards-content">
-
     <div class="row">
-
-      <% @tools.each do |tool| %>
       <div class="col-xs-12 col-sm-4">
+        <div id="movies">
+        <% @tools.each do |tool| %>
         <%= render 'card', tool: tool %>
+         <% end %>
       </div>
-      <% end %>
-
+      </div>
     </div>
   </div>
 
