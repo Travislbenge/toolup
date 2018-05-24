@@ -1,7 +1,10 @@
-<h1>Booking Edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
- <div class="container">
-   <div class="form-group text-center">
-    <%= render 'form' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>Edit Booking <%= @booking.id %></h2>
+      <div class="form-group">
+        <%= render 'form' %>
+      </div>
+    </div>
   </div>
 </div>

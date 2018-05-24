@@ -1,5 +1,5 @@
 class ToolsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: :homepage
 
   def index
     @render_footer = true
@@ -8,7 +8,7 @@ class ToolsController < ApplicationController
     authorize @tools
     @locations = Tool.where.not(latitude: nil, longitude: nil)
 
-    @markers = @locations.map do |location|
+    @markers = @tools.map do |location|
         {
           lat: location.latitude,
           lng: location.longitude
