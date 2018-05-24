@@ -9,9 +9,9 @@
       <div class="thumbnail">
         <%= cl_image_tag @tool.photo, height: 250, crop: :fill %>
         <div class="caption text-center">
-          <h3>Name:<%= @tool.name %></h3>
-          <p>Description:<br><%= @tool.description %></p>
-          <p>Price per day:<br><%= @tool.price %></p>
+          <h3><%= @tool.name %></h3>
+          <p><br><%= @tool.description %></p>
+          <p>Price<br><%= @tool.price %></p>
           <% if @tool.owner == current_user %>
             <%= link_to 'Edit', edit_tool_path, class: 'btn btn-warning' %></p>
           <% else %>
