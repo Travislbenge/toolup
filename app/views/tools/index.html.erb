@@ -1,19 +1,13 @@
-
-<div class="main-content">
-  <div class="cards-content">
-
-    <div class="row">
-
-      <% @tools.each do |tool| %>
-      <div class="col-xs-12 col-sm-4">
-        <%= render 'card', tool: tool %>
+  <div class = "container-fluid">
+    <div class="col-sm-8">
+      <div class="row">
+        <% @tools.each do |tool| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render 'card', tool: tool %>
+        </div>
+        <% end %>
       </div>
-      <% end %>
-
     </div>
+      <div id="map" data-markers="<%= @markers.to_json %>"></div>
   </div>
-
-<div id="map"
-data-markers="<%= @markers.to_json %>"
-></div>
 
