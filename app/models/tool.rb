@@ -5,4 +5,5 @@ class Tool < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   mount_uploader :photo, PhotoUploader
   has_many :reviews, dependent: :destroy
+  validates :photo, presence: true
 end
