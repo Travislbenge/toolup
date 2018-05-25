@@ -3,7 +3,7 @@
     <%= f.input :name, label: 'Name', placeholder: 'Big Tractor' %>
     <%= f.input :description, label: 'Description', placeholder: 'Does all the forming for us, yellow, too heavy to carry.' %>
     <%= f.input :price, label: 'Price', placeholder: 'price per day' %>
-    <%= f.input :category, :collection => [['Hand Tools', :BIG], ['Power Tools', :MED],['Machinery', :SMA]], :checked => [:MED], :include_hidden => false %>
+    <%= f.input :category, :collection => [['Hand Tools', :HANDTOOL], ['Power Tools', :POWERTOOL],['Machinery', :MACHINERY]], :checked => [:HANDTOOL], :include_hidden => false %>
 
     <%= f.input :photo, label: 'Upload pic' %>
     <%= f.input :address, label: 'Address', placeholder: 'addresss' %>
