@@ -38,12 +38,12 @@
               <%= render 'tools/review', review: review %>
             <% end %>
           </ul>
-          <% if @tool.owner == current_user %>
+
           <div class = "description-tools">
             <% if current_user.bookings.where(tool_id: @tool.id).first %>
             <%= render 'shared/review_form', tool: @tool, review: @review %>
             <% end %>
-             <% end %>
+
           </div>
       </div>
     </div>
