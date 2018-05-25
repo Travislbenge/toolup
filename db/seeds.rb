@@ -11,8 +11,8 @@ Booking.destroy_all
 Tool.destroy_all
 User.destroy_all
 puts "building Users"
-u = User.create(email: "travis@gmail.com", password:"123456")
-u_2 = User.create(email: "andrew@gmail.com", password:"123456")
+u = User.create(first_name: "Travis", last_name: "Bomb" ,email: "travis@gmail.com", password:"123456")
+u_2 = User.create(first_name: "Bobby", last_name: "Andrew", email: "andrew@gmail.com", password:"123456")
 cities = ["Denver", "Colorado Springs", "Boulder", "Fort Collins", "Breckenridge", "Grand Junction", "Durango"]
 names = ["Tractor","Duck tape","Trench digger","Nailgun","Monkey wrench","Air compressor","Chainsaw","Hammer","Leaf blower","Makeshift Tractor"]
 prices = [10,20,30,40,50,60,70,80,90,100]
