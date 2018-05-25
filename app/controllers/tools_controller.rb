@@ -26,6 +26,7 @@ class ToolsController < ApplicationController
   def show
     @render_footer = true
     @tool = Tool.find(params[:id])
+    @review = Review.new
     authorize @tool
     @markers = [@tool].map do |location|
         {
@@ -68,6 +69,7 @@ class ToolsController < ApplicationController
   end
 
   def update
+    @render_footer = true
     @tool = Tool.find(params[:id])
     authorize @tool
     @tool.update(tool_params)
@@ -77,6 +79,7 @@ class ToolsController < ApplicationController
   def mine
     @tools = current_user.my_tools
     authorize @tools
+    @render_footer = true
   end
 
   private

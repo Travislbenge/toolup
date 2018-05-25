@@ -8,12 +8,22 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @tool = Tool.find(params[:tool_id])
     # we need `tool_id` to asssociate review with corresponding tool
-    @review.tool = Tool.find(params[:tool_id])
+    @review.tool = @tool
     @review.user = current_user
     authorize @review
-    @review.save
-    redirect_to tool_path(@review.tool)
+     if @review.save
+      respond_to do |format|
+        format.html { redirect_to tool_path(@review.tool) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render 'tools/show' }
+        format.js  # <-- idem
+      end
+    end
   end
 
   private
