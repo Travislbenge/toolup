@@ -2,24 +2,28 @@
   <div class="big-box">
     <div class="box-left">
       <div class="inside-box-left">
-        <%= image_tag @user.facebook_picture_url, width: 100 %>
+        <%= image_tag @user.facebook_picture_url, width: 125 %>
         <h3><%= @user.first_name %></h3>
         <p><%= @user.email %></p>
         <p><%= @user.user_address %></p>
         <p><%= @user.payment_method %></p>
-        <a href="#" class="btn btn-primary">Edit profile</a>
+        <%= link_to 'My Tools', my_tools_path, class: "btn btn-primary" %>
       </div>
     </div>
     <div class="boxes-right">
       <div class="box-right-up">
         <h3>Your bookings</h3>
           <% @bookings.each do |booking| %>
-          <p><%= booking.tool.name %> -- Booked: <%= booking.created_at.strftime("%F") %></p>
+          <p><%= booking.tool.name %> -- Booked: <%= booking.created_at.strftime("%F") %>
+            <%= link_to 'Delete', my_tools_path, class: "btn btn-primary" %>
+          </p>
           <% end %>
       </div>
       <div class="box-right-down">
         <h3>Your reviews</h3>
-          <p>That's a FUCKING review</p>
+          <% @bookings.each do |booking| %>
+          <p>The <%= booking.tool.name %> was awesome, I recommend it!</p>
+          <% end %>
       </div>
     </div>
     </div>
