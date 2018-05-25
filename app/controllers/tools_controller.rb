@@ -2,9 +2,15 @@ class ToolsController < ApplicationController
   skip_before_action :authenticate_user!, only: :homepage
 
   def index
+
     @render_footer = true
     @tools = policy_scope(Tool)
-    @tools = Tool.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR category ILIKE :query"
+      @tools = Tool.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @tools = Tool.all
+    end
     authorize @tools
     @locations = Tool.where.not(latitude: nil, longitude: nil)
 
@@ -76,6 +82,6 @@ class ToolsController < ApplicationController
   private
 
   def tool_params
-    params.require(:tool).permit(:name, :description, :price, :category, :photo, :address)
+    params.require(:tool).permit(:name, :description, :price, :category, :photo, :address, :term)
   end
 end
