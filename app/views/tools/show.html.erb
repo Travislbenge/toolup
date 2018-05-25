@@ -43,6 +43,7 @@
             <% if current_user.bookings.where(tool_id: @tool.id).first %>
             <%= render 'shared/review_form', tool: @tool, review: @review %>
             <% end %>
+
           </div>
       </div>
     </div>
