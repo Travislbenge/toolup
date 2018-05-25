@@ -3,18 +3,15 @@
   <div class="big-box-t">
     <div class="box-left-t">
       <div class="inside-box-left">
-
-         <%= image_tag @user.facebook_picture_url, width: 125 %>
-        <h3><%= @user.first_name %></h3>
-        <p><%= @user.email %></p>
-        <p><%= @user.user_address %></p>
-        <p><%= @user.payment_method %></p>
-        <%= link_to 'My Tools', my_tools_path, class: "btn btn-primary" %>
-        <p><br>
-           <%= link_to 'All tools', tools_path, class: 'btn btn-danger' %>
-        </p>
-
-
+          <%= image_tag @user.facebook_picture_url, width: 125 %>
+          <h3><%= @user.first_name %></h3>
+          <p><%= @user.email %></p>
+          <p><%= @user.user_address %></p>
+          <p><%= @user.payment_method %></p>
+          <%= link_to 'My Tools', my_tools_path, class: "btn btn-primary" %>
+          <p><br>
+             <%= link_to 'All tools', tools_path, class: 'btn btn-danger' %>
+          </p>
       </div>
     </div>
 
@@ -24,34 +21,29 @@
           <h3><%= @tool.name %></h3>
           <p>About: <%= @tool.description %></p>
           <p>Price: <%= @tool.price %></p>
+
           <% if @tool.owner == current_user %>
             <%= link_to 'Edit', edit_tool_path, class: 'btn btn-success' %></p>
           <% else %>
            <div class="form-group">
-            <%= render 'bookings/form' %>
-          </div>
-
+              <%= render 'bookings/form' %>
+            </div>
           <% end %>
+          <br><br>
+          <%= link_to 'More tools', tools_path, class: 'btn btn-danger' %>
 
-       <%#= link_to 'Add Review', tools_path, class: 'btn btn-primary' %>
+          <h2>Tool's reviews</h2>
+          <ul class="list-unstyled" id="reviews">
+            <% @tool.reviews.each do |review| %>
+              <%= render 'tools/review', review: review %>
+            <% end %>
+          </ul>
 
           <div class = "description-tools">
             <% if current_user.bookings.where(tool_id: @tool.id).first %>
             <%= render 'shared/review_form', tool: @tool, review: @review %>
             <% end %>
-
-            <br>
-            <h2>Tool's reviews</h2>
-            <ul class="list-unstyled" id="reviews">
-              <% @tool.reviews.each do |review| %>
-              <%= render 'tools/review', review: review %>
-            </ul>
-            <% end %>
           </div>
-        </div>
-      </div>
-    </div>
-
       </div>
     </div>
   </div>
