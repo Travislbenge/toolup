@@ -41,6 +41,7 @@ class ToolsController < ApplicationController
     @render_footer
     @tool = Tool.new
     authorize @tool
+    @user = current_user
   end
 
   def create
@@ -66,6 +67,7 @@ class ToolsController < ApplicationController
     @render_footer
     @tool = Tool.find(params[:id])
     authorize @tool
+    @user = current_user
   end
 
   def update
