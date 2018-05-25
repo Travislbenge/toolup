@@ -18,6 +18,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
+
 }
 .boxes-right-t {
   grid-row: 1 / span 2;
@@ -31,6 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
 }
 .box-right-up-t {
   grid-column: 2 / span 3;
@@ -42,7 +45,8 @@
   margin: 10px;
   border-radius: 5px;
   align-self: center;
-  height: 50%;
+
+
 }
 .box-right-down-t {
   grid-column: 2 / span 3;
