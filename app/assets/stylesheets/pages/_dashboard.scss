@@ -17,6 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
 }
 .boxes-right {
   height: calc(100vh - 70px);
@@ -32,6 +33,7 @@
   border-radius: 5px;
   align-self: center;
   height: 50%;
+  overflow: scroll;
 }
 .box-right-down {
   grid-column: 2 / span 3;
@@ -44,6 +46,7 @@
   border-radius: 5px;
   align-self: center;
   height: 50%;
+  overflow: scroll;
 }
 .profile .btn {
   border-radius: 0;
