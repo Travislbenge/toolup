@@ -35,6 +35,10 @@ class ToolsController < ApplicationController
           # infoWindow: { content: render_to_string(partial: "/tools/map_box", locals: { flat: flat }) }
         }
      end
+    @tool = Tool.find(params[:id])
+    @booking = Booking.new
+    @user = current_user
+
   end
 
   def new
