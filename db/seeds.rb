@@ -11,24 +11,30 @@ Tool.destroy_all
 User.destroy_all
 Booking.destroy_all
 puts "building Users"
-u = User.create(email: "antoine@gmail.com", password:"123456")
-u_2 = User.create(email: "antoine.guilguet@gmail.com", password:"123456")
+u = User.create(email: "travis@gmail.com", password:"123456")
+u_2 = User.create(email: "andrew@gmail.com", password:"123456")
 cities = ["Denver", "Colorado Springs", "Boulder", "Fort Collins", "Breckenridge", "Grand Junction", "Durango"]
-tools = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTadr3a0_Kf0Iuu0SfVeAVpBSZUbxn7uMXO0enV3dRhVwQGtQG_","https://cdn.shopify.com/s/files/1/0978/7942/products/199781_69e5ff97-4f56-49b9-872f-4f2a7714d132_1000x.jpg?v=1497013132","https://cdn.shopify.com/s/files/1/1701/4651/products/il_fullxfull.1178468131_mjwx_644f7771-a19f-4ac1-9051-65a7ac90d8ae_1024x1024.jpg?v=1500784953","https://images.manmadediy.com/Z3Zmo5U3KE5nx7kX9NpFPBgtvBk=/800x0/filters:no_upscale()/http://assets.manmadediy.com/photos/27757/IMG_4871_large_large.jpg","https://atmedia.imgix.net/da725f53e8e7d4deddc218abb20201d54ba4fb51?auto=format&q=45&w=398.0&fit=max&cs=strip","http://otools1.wkfinetools.com/planes/x_usingP/ct-14/0_img/Photo2.jpg","http://jewelrymakingjournal.com/wp-content/uploads/2012/03/virginia-vivier-jewelry-tools-4-375x319.jpg","http://atomictoasters.com/wp-content/gallery/high-resolution-images/beautiful-tool.jpg"]
+names = ["Tractor","Duck tape","Trench digger","Nailgun","Monkey wrench","Air compressor","Chainsaw","Hammer","Leaf blower","Makeshift Tractor"]
+prices = [10,20,30,40,50,60,70,80,90,100]
+categories = ["Machinery", "Power tool", "Machinery", "Power tool", "Hand tool", "Power tool", "Power tool", "Hand tool", "Power tool", "Machinery"]
+descriptions = ["Really nice, capable tractor. My favorite", "Nothing is more dependable.", "If you need a trench, this is the tool for you.", "Hammer too slow? Try this nailgun!", "If your wrenches don't change size, you're probably doing something wrong.", "For people who need access to a higher density of air.", "For those who need to cut things, fast.", "Lost your hammer? You can rent mine!", "Autumn drowning you in leaves? Quick fix with this leaf blower!", "She may not look pretty but she gon get that job done!"]
+tools = ["https://cdn.agriland.ie/uploads/2014/04/RBV_150_CropCutter_13_017-1024x683.jpg","http://images.mentalfloss.com/sites/default/files/styles/mf_image_16x9/public/w_17.png?itok=Tv8D5arf&resize=1100x619","http://photos.imageevent.com/jctair/rideontrenchingmachinesvermeer3550/websize/Veermer%20064.JPG","http://www.cashusabaltimore.com/content/images/thumbs/0000227_porter-cable-bn200c-nail-gun.jpeg","http://otools1.wkfinetools.com/mechanicT/z_readArticle/monkeyWrench/0_img/Pic%201.jpg","http://5.imimg.com/data5/XI/YK/MY-657316/air-compressor-250x250.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Stihl_MS_170.JPG/1200px-Stihl_MS_170.JPG","https://cdn.shopify.com/s/files/1/0207/8508/products/MGNLPRDCT_48_of_71_1024x1024.jpg?v=1505925094","https://s.aolcdn.com/hss/storage/midas/8db1b200ae98a72a38be6acd1b485490/204545386/01-leaf-blower-2000.jpg","http://toolmonger.com/wp-content/uploads/2011/06/tractor-car.jpg"]
 puts "building ten tools"
-10.times do
-  url = tools.sample
+
+10.times do |x|
+  url = tools[x]
   tool = Tool.new(
-    name: Faker::Pokemon.name,
-    description: Faker::Pokemon.move,
-    price: Faker::Currency.name,
-    category: Faker::Color.color_name,
+    name: names[x],
+    description: descriptions[x],
+    price: prices.sample,
+    category: categories[x],
     address: cities.sample,
     user_id: u.id
     )
   tool.remote_photo_url = url
   tool.save
-  puts "building ten bookings"
+  puts "waiting..."
   Booking.create(tool_id: tool.id, user_id: u.id)
   Booking.create(tool_id: tool.id, user_id: u_2.id)
 end
+
