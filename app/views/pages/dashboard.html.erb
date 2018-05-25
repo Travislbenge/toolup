@@ -21,8 +21,10 @@
       </div>
       <div class="box-right-down">
         <h3>Your reviews</h3>
-          <% @bookings.each do |booking| %>
-          <p>The <%= booking.tool.name %> was awesome, I recommend it!</p>
+        <% dashrev = Review.where(user_id: @user.id) %>
+          <% dashrev.each do |dash| %>
+          <p><%= dash.content %></p>
+          <p> <%= link_to dash.tool.name, tool_path(dash.tool.id) %></p>
           <% end %>
       </div>
     </div>
