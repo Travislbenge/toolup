@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 300px 1fr;
   grid-template-rows: 1fr 1fr;
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
   padding: 30px 0;
 }
 
@@ -33,7 +33,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: scroll;
 }
 .box-right-up-t {
   grid-column: 2 / span 3;
@@ -78,4 +77,8 @@
   margin: 10px;
   border-radius: 5px;
   align-self: center;
+}
+
+.reviewbox {
+  overflow: scroll;
 }
