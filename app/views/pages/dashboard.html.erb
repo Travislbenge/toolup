@@ -1,13 +1,27 @@
-<h1>My Dashboard</h1>
-<div class="main-content">
-  <div class="booking-content">
-    <div class="row">
-      <div class="col-4 ">
-        <% @bookings.each do |booking| %>
-          <p>Tool: <%= booking.tool.name %></p>
-          <p>Booked: <%= booking.created_at.strftime("%F") %></p>
-        <% end %>
+<div class="container text-center">
+  <div class="big-box">
+    <div class="box-left">
+      <div class="inside-box-left">
+        <%= image_tag @user.facebook_picture_url, width: 100 %>
+        <h3><%= @user.first_name %></h3>
+        <p><%= @user.email %></p>
+        <p><%= @user.user_address %></p>
+        <p><%= @user.payment_method %></p>
+        <a href="#" class="btn btn-primary">Edit profile</a>
       </div>
+    </div>
+    <div class="boxes-right">
+      <div class="box-right-up">
+        <h3>Your bookings</h3>
+          <% @bookings.each do |booking| %>
+          <p><%= booking.tool.name %> -- Booked: <%= booking.created_at.strftime("%F") %></p>
+          <% end %>
+      </div>
+      <div class="box-right-down">
+        <h3>Your reviews</h3>
+          <p>That's a FUCKING review</p>
+      </div>
+    </div>
     </div>
   </div>
 </div>
