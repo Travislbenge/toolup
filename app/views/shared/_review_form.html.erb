@@ -1,5 +1,5 @@
 
-<%= simple_form_for([tool, review], remote: true) do |f| %>
+<%= simple_form_for([tool, review], remote: true, defaults: { input_html: { class: 'form-control' } }) do |f| %>
   <%= f.input :content %>
   <%= f.submit "add a review", class: "btn btn-primary" %>
 <% end %>
