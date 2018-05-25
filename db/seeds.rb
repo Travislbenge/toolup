@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+Booking.destroy_all
 Tool.destroy_all
 User.destroy_all
-Booking.destroy_all
 puts "building Users"
-u = User.create(email: "travis@gmail.com", password:"123456")
-u_2 = User.create(email: "andrew@gmail.com", password:"123456")
+u = User.create(first_name: "Travis", last_name: "Bomb" ,email: "travis@gmail.com", password:"123456")
+u_2 = User.create(first_name: "Bobby", last_name: "Andrew", email: "andrew@gmail.com", password:"123456")
 cities = ["Denver", "Colorado Springs", "Boulder", "Fort Collins", "Breckenridge", "Grand Junction", "Durango"]
 names = ["Tractor","Duck tape","Trench digger","Nailgun","Monkey wrench","Air compressor","Chainsaw","Hammer","Leaf blower","Makeshift Tractor"]
 prices = [10,20,30,40,50,60,70,80,90,100]
@@ -34,9 +34,9 @@ puts "building ten tools"
   tool.remote_photo_url = url
   u.facebook_picture_url = "https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/1930468_29324892422_1599_n.jpg?_nc_cat=0&oh=f9a96e3e9abb4f8b85c521ada9cb6ffe&oe=5B90284B"
   u_2.facebook_picture_url = "https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/1930468_29324892422_1599_n.jpg?_nc_cat=0&oh=f9a96e3e9abb4f8b85c521ada9cb6ffe&oe=5B90284B"
+  u.save
+  u_2.save
   tool.save
   puts "waiting..."
-  Booking.create(tool_id: tool.id, user_id: u.id)
-  Booking.create(tool_id: tool.id, user_id: u_2.id)
 end
 
