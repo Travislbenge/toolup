@@ -17,20 +17,21 @@
           <br><br>
           <%= link_to 'More tools', tools_path, class: 'btn btn-danger' %>
           <%#= link_to 'Add Review', tools_path, class: 'btn btn-primary' %>
-        <div class = "description-tools">
-          <% if current_user.bookings.where(tool_id: @tool.id).first %>
-            <%= render 'shared/review', tool: @tool, review: Review.new %>
-            <% end %>
-            <h2>Tool's reviews</h2>
-              <% @tool.reviews.each do |review| %>
-              <ul class="list-unstyled"><li>
-              <%= review.content%></li>
-              <li><%= review.user.first_name %></li></ul>
+
+          <div class = "description-tools">
+            <% if current_user.bookings.where(tool_id: @tool.id).first %>
+            <%= render 'shared/review_form', tool: @tool, review: @review %>
 
             <% end %>
+            <h2>Tool's reviews</h2>
+            <ul class="list-unstyled" id="reviews">
+              <% @tool.reviews.each do |review| %>
+              <%= render 'tools/review', review: review %>
+            </ul>
+            <% end %>
+          </div>
         </div>
       </div>
-</div>
     </div>
     <div id="map" data-markers="<%= @markers.to_json %>"></div>
   </div>
