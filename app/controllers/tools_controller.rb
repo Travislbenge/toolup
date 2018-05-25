@@ -26,6 +26,7 @@ class ToolsController < ApplicationController
   def show
     @render_footer = true
     @tool = Tool.find(params[:id])
+    @review = Review.new
     authorize @tool
     @markers = [@tool].map do |location|
         {
@@ -34,12 +35,17 @@ class ToolsController < ApplicationController
           # infoWindow: { content: render_to_string(partial: "/tools/map_box", locals: { flat: flat }) }
         }
      end
+    @tool = Tool.find(params[:id])
+    @booking = Booking.new
+    @user = current_user
+
   end
 
   def new
     @render_footer
     @tool = Tool.new
     authorize @tool
+    @user = current_user
   end
 
   def create
@@ -65,9 +71,11 @@ class ToolsController < ApplicationController
     @render_footer
     @tool = Tool.find(params[:id])
     authorize @tool
+    @user = current_user
   end
 
   def update
+    @render_footer = true
     @tool = Tool.find(params[:id])
     authorize @tool
     @tool.update(tool_params)
@@ -77,6 +85,7 @@ class ToolsController < ApplicationController
   def mine
     @tools = current_user.my_tools
     authorize @tools
+    @render_footer = true
   end
 
   private

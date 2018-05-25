@@ -1,38 +1,62 @@
 <!-- Sexy Bootstrap Thumbmnail -->
+<div class="container text-center">
+  <div class="big-box-t">
+    <div class="box-left-t">
+      <div class="inside-box-left">
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <div class="thumbnail">
-        <%= cl_image_tag @tool.photo, height: 250, crop: :fill %>
-        <div class="caption text-center">
+         <%= image_tag @user.facebook_picture_url, width: 125 %>
+        <h3><%= @user.first_name %></h3>
+        <p><%= @user.email %></p>
+        <p><%= @user.user_address %></p>
+        <p><%= @user.payment_method %></p>
+        <%= link_to 'My Tools', my_tools_path, class: "btn btn-primary" %>
+        <p><br>
+           <%= link_to 'All tools', tools_path, class: 'btn btn-danger' %>
+        </p>
+
+
+      </div>
+    </div>
+
+    <div class="boxes-right-t">
+      <div class="box-right-big-t">
+         <%= cl_image_tag @tool.photo, height: 150, crop: :fill %>
           <h3><%= @tool.name %></h3>
-          <p><br><%= @tool.description %></p>
-          <p>Price<br><%= @tool.price %></p>
+          <p>About: <%= @tool.description %></p>
+          <p>Price: <%= @tool.price %></p>
           <% if @tool.owner == current_user %>
-          <%= link_to 'Edit', edit_tool_path, class: 'btn btn-warning' %></p>
+            <%= link_to 'Edit', edit_tool_path, class: 'btn btn-success' %></p>
           <% else %>
-          <%= link_to 'Book me', new_tool_booking_path(@tool), class: 'btn btn-success' %>
-          <% end %>
-          <br><br>
-          <%= link_to 'More tools', tools_path, class: 'btn btn-danger' %>
-          <%#= link_to 'Add Review', tools_path, class: 'btn btn-primary' %>
-        <div class = "description-tools">
-          <% if current_user.bookings.where(tool_id: @tool.id).first %>
-            <%= render 'shared/review', tool: @tool, review: Review.new %>
-            <% end %>
-            <h2>Tool's reviews</h2>
-              <% @tool.reviews.each do |review| %>
-              <ul class="list-unstyled"><li>
-              <%= review.content%></li>
-              <li><%= review.user.first_name %></li></ul>
+           <div class="form-group">
+            <%= render 'bookings/form' %>
+          </div>
 
+          <% end %>
+
+       <%#= link_to 'Add Review', tools_path, class: 'btn btn-primary' %>
+
+          <div class = "description-tools">
+            <% if current_user.bookings.where(tool_id: @tool.id).first %>
+            <%= render 'shared/review_form', tool: @tool, review: @review %>
             <% end %>
+
+            <br>
+            <h2>Tool's reviews</h2>
+            <ul class="list-unstyled" id="reviews">
+              <% @tool.reviews.each do |review| %>
+              <%= render 'tools/review', review: review %>
+            </ul>
+            <% end %>
+          </div>
         </div>
       </div>
-</div>
     </div>
-    <div id="map" data-markers="<%= @markers.to_json %>"></div>
+
+      </div>
+    </div>
   </div>
 </div>
+
+
+
 
