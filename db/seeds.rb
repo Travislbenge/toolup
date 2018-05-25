@@ -38,7 +38,5 @@ puts "building ten tools"
   u_2.save
   tool.save
   puts "waiting..."
-  Booking.create(tool_id: tool.id, user_id: u.id)
-  Booking.create(tool_id: tool.id, user_id: u_2.id)
 end
 
