@@ -1,108 +1,136 @@
-.card {
+.card-tool-container {
+  flex: 0 0 100%;
+}
+.card-tool{
+  background-color: white;
   height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
-  color: white;
+  border-radius: 3px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: relative;
   margin: 5px;
   color: grey;
   border-radius: 2px;
   border: 1px solid;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  transform: scale(1);
 }
-.card-user {
+.card-tool:hover {
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.45);
+}
+.card-tool-image-user{
   position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
+  top: 5px;
+  right: 5px;
+  width: 25px;
   border-radius: 50%;
+}
+.card-tool-image{
+  height: 100px;
+  background-size: cover !important;
+  border-radius: 3px 3px 0px 0px;
+  background-position: center;
+  position: relative;
+}
+.card-text{
+  position: relative;
+  height: 75px;
 }
 .card-category {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
+  top: 0px;
+  left: 0px;
+  font-size: 13px;
+  font-weight: bold;
   text-transform: uppercase;
   color: black;
+  margin: 10px;
 }
-.card-description {
+.card-name {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 32px;
+  top: 10px;
+  left: 0px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 17px;
   color: black;
+  margin: 17px 0px 15px 10px;
 }
-.card-description h2 {
-  font-size: 24px;
-  color: black;
-}
-.card-description p {
+.card-address {
+  position: absolute;
+  top: 20px;
+  left: 0px;
   font-size: 14px;
   opacity: 0.7;
   font-weight: lighter;
   color: black;
+  margin: 25px 0px 15px 10px;
 }
-.card-link {
+.card-address {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
+  top: 20px;
+  left: 0px;
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
   color: black;
-  opacity: 0;
+  margin: 25px 0px 15px 10px;
 }
-.card-link:hover {
-  opacity: 0.1;
+.review-count {
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
   color: black;
+  margin: 25px 0px 15px 10px;
 }
-
-.booking{
-  text-align: center;
-  justify-content:center;
-  margin: 20px;
-  background-color: #f7f7f7 ;
-  opacity:0.8;
-  border: solid 1px;
-  border-color: white;
-  border-radius:5px;
-}
-
-.container-fluid{
- background-color: #eeeeee;
-}
-
-.description-tools{
-  margin: 10px;
-}
-
-// .card:hover {
-//   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.45);
+// .card-text{
+//   background-color: white;
 // }
+// .card {
 
-// img {
-//   width: 480px;
-//   border-radius: 1% 1% 0 0;
-// }
-
-// h4 {
-//   font-family: Roboto, sans-serif;
-//   font-size: 24px;
-//   font-weight: bold;
-//   margin: 20px 30px 0px;
-// }
-
-// p {
-//   font-family: Roboto, sans-serif;
-//   font-size: 16px;
-//   font-weight: 300;
-//   width: 414px;
-//   margin: 8px 30px 0px;
-//   color: #757575;
+//   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+//   background-size: cover !important;
+//   background-position: center;
+//   color: white;
+//   transform: scale(1);
 // }
 
 
 
 
+
+
+// .card-description-link {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   width: 100%;
+//   z-index: 2;
+//   color: black;
+//   opacity: 0;
+// }
+// .card-description-link:hover {
+//   opacity: 0.1;
+//   color: black;
+// }
+
+// .booking{
+//   text-align: center;
+//   justify-content:center;
+//   margin: 20px;
+//   background-color: #f7f7f7 ;
+//   opacity:0.8;
+//   border: solid 1px;
+//   border-color: white;
+//   border-radius:5px;
+// }
+
+// .container-fluid{
+//  background-color: #eeeeee;
+// }
+
+// .description-tools{
+//   margin: 10px;
+// }
