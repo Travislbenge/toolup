@@ -1,19 +1,27 @@
-<h1>You are in your Bookings</h1>
+<div class="container text-center">
+  <div class="big-box-t">
+    <div class="box-left-t">
+      <div class="inside-box-left">
+        <%= image_tag @user.facebook_picture_url, width: 125 %>
+        <h3><%= @user.first_name %></h3>
+        <p><%= @user.email %></p>
+        <p><%= @user.user_address %></p>
+        <p><%= @user.payment_method %></p>
+        <%= link_to 'My Tools', my_tools_path, class: "btn btn-primary" %>
+      </div>
+    </div>
 
-<div class="container">
-
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="thumbnail">
+    <div class="boxes-right-t">
+      <div class="box-right-big-t">
+        <h3>Booking successful!</h3>
         <%= cl_image_tag @booking.tool.photo, height: 250, crop: :fill %>
-        <div class="caption text-center">
           <h3>Tool: <%= @booking.tool.name %></h3>
           <p>Owner: <%= @booking.tool.owner.email %></p>
            <p>Start date: <%= @booking.start_date %></p>
            <p>End date: <%= @booking.end_date %></p>
           <br><br>
-          <%= link_to 'More tools', tools_path, class: 'btn btn-danger' %>
-        </div>
+          <%= link_to 'All tools', tools_path, class: 'btn btn-danger' %>
+
       </div>
     </div>
   </div>
