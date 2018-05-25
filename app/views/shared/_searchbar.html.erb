@@ -2,6 +2,8 @@
   <%= form_tag tools_path, method: :get do %>
   <%= text_field_tag :query,
   params[:query],
-  class: "form-control",
+  class: "form-inline",
   placeholder: "Find a tool"%>
+  <button type="submit"><i class="fa fa-search"></i></button>
 <% end %>
+
